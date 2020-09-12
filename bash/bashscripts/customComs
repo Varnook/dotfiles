@@ -1,0 +1,13 @@
+#!/bin/bash
+
+function showScrot() {
+	scrDir="$HOME/Fotos/scr"
+	feh "$scrDir/$(ls -t "$scrDir" | head -1)"
+}
+
+function txmake() {
+	pdflatex "${1}tex" --shell-escape
+	killall apvlv
+	nohup apvlv "${1}pdf" >/dev/null 2>&1 &
+	disown %1
+}

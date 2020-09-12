@@ -1,0 +1,2 @@
+#!/bin/bash
+apvlv ~/Downloads/$(ls ~/Downloads -t | grep pdf | head -1)

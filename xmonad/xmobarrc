@@ -1,0 +1,37 @@
+Config { font = "xft:B612:size=16"
+	   , additionalFonts = ["xft:Hack:size=17"]
+       , bgColor = "#373e4d"
+       , fgColor = "#efefef"
+       , commands = [ Run Cpu ["-L", "20",                       "-H", "70",
+	                           "-l", "#2be491", "-n", "#fa946e", "-h", "#fa5aa4", 
+							   "-S", "True", "-p", "3",
+							   "-t", "<fc=#efefef>Cpu:</fc><total>"
+							  ] 10,
+
+                      Run Memory ["-L", "20",                       "-H", "70",
+                                  "-l", "#2be491", "-n", "#fa946e", "-h", "#fa5aa4", 
+								  "-S", "True", "-p", "3",
+								  "-t","<fc=#efefef>Mem:</fc><usedratio>"
+								 ] 10,
+
+					  Run Com "date" ["+                   %H:%M <fc=#7f8fa4>%a %_d %b</fc>"] "mydate" 600,
+					  Run Com "bash" [".bashscripts/disku"] "mydisk" 1800,
+
+                      Run StdinReader
+					]
+				
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <icon=.xmonad/icons/hsLambda.xpm/> %StdinReader% } %mydate% { %mydisk%     %cpu% %memory%"
+       }
+
+--      background = "#373e4d",
+
+--  	black   = "#434c5e",
+--  	red     = "#fa5aa4",
+--  	green   = "#2be491",
+--  	yellow  = "#fa946e",
+--  	blue    = "#7acbea",
+--  	magenta = "#cf8ef4",
+--  	cyan    = "#89ccf7",
+--  	white   = "#efefef"
