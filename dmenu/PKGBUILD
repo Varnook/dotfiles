@@ -1,0 +1,15 @@
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=dmenu
+pkgver=5.0
+pkgrel=1
+pkgdesc="application launcher"
+url="https://tools.suckless.org/dmenu"
+arch=(x86_64)
+source=("file:///home/syx/Programs/dmenu-5.0")
+md5sums=('SKIP')
+
+
+package() {
+	cd "/home/syx/Programs/dmenu-5.0"
+	make DESTDIR="$pkgdir/" clean install
+}
