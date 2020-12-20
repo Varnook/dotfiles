@@ -6,7 +6,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-Plug 'valloric/youcompleteme'
+Plug 'ajh17/VimCompletesMe'
 Plug '~/.vim/colors'
 call plug#end()
 
@@ -32,17 +32,12 @@ set shiftwidth=4
 set nowrap
 set completeopt-=preview
 
-let g:powerline_pycmd="py3"
-set laststatus=2
-set noshowmode
-
 inoremap {<cr> {<cr>}<c-o>O
 inoremap [<cr> [<cr>]<c-o>O
 inoremap (<cr> (<cr>)<c-o>O
 
 nnoremap <c-n> :call ToggleTerminal() <CR>
 nnoremap <c-l> :call NrdTree() <CR>
-
 
 let g:toggle_term = "<c-n>"
 let s:toggled_term = -1
@@ -72,3 +67,6 @@ function! NrdTree()
 endfunction
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd FileType vim let b:vcm_tab_complete = 'vim'
+autocmd FileType c   let b:vcm_tab_complete = 'c'
+autocmd FileType cpp let b:vcm_tab_complete = 'cpp'
