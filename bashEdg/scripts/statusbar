@@ -1,0 +1,20 @@
+#!/bin/bash
+
+while true; do
+	batIcon=""
+	batLvl=$(cat /sys/class/power_supply/BAT0/capacity)
+
+	date=$(date +%H:%M\ \ \ \ \ %a\ %d\ %b)
+
+	if test $batLvl -le 25; then
+		batIcon=""
+	elif test $batLvl -le 50; then
+		batIcon=""
+	elif test $batLvl -le 75; then
+		batIcon=""
+	fi
+
+	xsetroot -name " $date     $batIcon $batLvl%"
+	sleep 60
+done &
+

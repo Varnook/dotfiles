@@ -1,0 +1,6 @@
+#!/bin/bash
+
+function showScrot() {
+	scrDir="$HOME/Fotos/scr"
+	feh "$scrDir/$(ls -t "$scrDir" | head -1)"
+}

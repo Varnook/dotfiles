@@ -1,17 +1,3 @@
-#
-# ~/.bashrc
-#
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-if [ -f `which powerline-daemon` ]; then
-	powerline-daemon -q
-	POWERLINE_BASH_CONTINUATION=1
-	POWERLINE_BASH_SELECT=1
-	. /usr/share/powerline/bindings/bash/powerline.sh
-fi
-
 alias ls='ls --color=auto'
 alias la='ls -a'
 
@@ -20,7 +6,5 @@ export LS_COLORS
 
 export scrDir="$HOME/Fotos/scr"
 source "$HOME/.bashscripts/customComs"
-
-set -o vi
 
 PS1='[\u@\h \W]\$ '

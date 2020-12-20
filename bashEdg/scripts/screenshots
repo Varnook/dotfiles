@@ -1,0 +1,13 @@
+#!/bin/bash
+
+scrDir="$HOME/Fotos/scr"
+
+xwd -out "$scrDir/screen.xwd"
+
+
+newName=$(find "$scrDir/screen.xwd" -printf '%TY%Tm%Td%TH%TM%TS' | tr -d ".")
+
+convert "$scrDir/screen.xwd" "$scrDir/$newName.png"
+
+
+rm "$scrDir/screen.xwd"
