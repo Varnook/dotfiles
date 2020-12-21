@@ -1,5 +1,5 @@
 # Homepage
-set home-page=.config/vimb/homepage/index.html
+set home-page=file:///user/home/.config/vimb/homepage/index.html
 
 # Download directory
 set download-path=~/Downloads
@@ -17,16 +17,19 @@ shortcut-add searx=https://searx.info/?q=$0
 # Default search
 shortcut-default searx
 
-# Zoom
-set default-zoom=120
-
 set dark-mode=true
 
+# Font
+set font-size=20
+
+# User agent
+#set user-agent=googlebot
+autocmd LoadStarting https://web.whatsapp.com/ :set user-agent=googlebot
+
 # Keybinds
-nmap b :sh! sh ${HOME}/.bashscripts/openMpv % <CR>
-
-
-augroup mygroup
-autocmd LoadCommitted http{s,}://www.youtube.com/watch?v=* no b
-autocmd DownloadFinished *.pdf :sh! sh ${HOME}/.bashscripts/openApvlv <CR>
-augroup end
+#nmap b :sh! sh ${HOME}/.bashscripts/openMpv % <CR>
+#nmap <C-U> :sh! vimb_adblock<CR>
+#augroup mygroup
+#autocmd LoadCommitted http{s,}://www.youtube.com/watch?v=* no b
+#autocmd DownloadFinished *.pdf :sh! sh ${HOME}/.bashscripts/openApvlv <CR>
+#augroup end
