@@ -7,7 +7,6 @@
 
 alias ls='ls --color=auto'
 alias la='ls -a'
-alias rmr='sudo rm -r'
 
 LS_COLORS='di=01;94:ln=04;36:*.c=00;96:*.h=00;93:*.cpp=00;96:*hpp=00;93:*.py=00;91:*.asm=00;31:*.hs=00;36:*.iso=00;92:*.pdf=00;31:ex=01;32';
 export LS_COLORS
@@ -15,16 +14,4 @@ export LS_COLORS
 export scrDir="$HOME/Fotos/scr"
 source "$HOME/.bashscripts/customComs"
 
-_git_parse() {
-	gitBranch=$(git branch 2>/dev/null | grep '*' | colrm 1 2)
-
-	if test -n "$gitBranch"; then
-		if test $(git status -s | grep "M " | wc -l) -gt 0; then
-			echo " $gitBranch+ "
-		else
-			echo " $gitBranch "
-		fi
-	fi
-}
-
-PS1='\[\033[0;90m\][\[\033[0;95m\]\u@\h:\[\033[0;35m\]\W\[\033[0;90m\]]\[\033[0;92m\]$(_git_parse)\[\033[0;90m\]$ \[\033[0;29m\]'
+PS1='\[\033[0;90m\][\[\033[0;35m\]\u@\h:\[\033[0;95m\]\W\[\033[0;90m\]]\[\033[0;92m\]$(_git_parse)\[\033[0;90m\]$ \[\033[0;29m\]'

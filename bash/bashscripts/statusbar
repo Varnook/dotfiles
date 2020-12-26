@@ -1,20 +1,22 @@
 #!/bin/bash
+cd $HOME/.bashscripts/
+
+rxPrev="0"
+txPrev="0"
 
 while true; do
-	batIcon=""
-	batLvl=$(cat /sys/class/power_supply/BAT0/capacity)
+	text=""
 
-	date=$(date +%H:%M\ \ \ \ \ %a\ %d\ %b)
-
-	if test $batLvl -le 25; then
-		batIcon=""
-	elif test $batLvl -le 50; then
-		batIcon=""
-	elif test $batLvl -le 75; then
-		batIcon=""
+	if test $(cat sbState) == 0; then
+		text=$(date +%H:%M\ \ \ \ \ %a\ %d\ %b)
+	else
+		rxCurr=$(awk '/enp3s0/ {print $2 }' /proc/net/dev)
+		txCurr=$(awk '/enp3s0/ {print $10}' /proc/net/dev)
+		text=`python "netuse.py" "$rxCurr" "$rxPrev" "$txCurr" "$txPrev"`
+		rxPrev=$rxCurr
+		txPrev=$txCurr
 	fi
 
-	xsetroot -name " $date     $batIcon $batLvl%"
-	sleep 60
-done &
-
+	xsetroot -name " $text"
+	sleep 1
+done

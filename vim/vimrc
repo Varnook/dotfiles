@@ -23,6 +23,7 @@ color custom
 set encoding=utf-8
 set ttymouse=sgr
 set number
+set relativenumber
 syntax enable
 set background=dark
 set autoindent
