@@ -1,0 +1,42 @@
+#!/bin/bash
+cd $HOME/.bashscripts/
+
+rxPrev="0"
+txPrev="0"
+
+while true; do
+	text=""
+
+	if test $(cat sbState) == 0; then
+
+		date=$(date +%H:%M\ \ \ \ %a\ %d\ %b)
+		batLev=$(cat /sys/class/power_supply/BAT0/capacity)
+		batIco=""
+		volLev=$(pactl list sinks | awk '/Volume/ {print $5; exit}')
+		volMut=$(pactl list sinks | awk '/Mute/   {print $2}')
+		volume=" $volLev"
+
+		if test $batLev -le 25; then
+			batIco=""
+		elif test batLev -le 50; then
+			batIco=""
+		elif test batLev -le 75; then
+			batIco=""
+		fi
+
+		if test $volMut = "yes"; then
+			volume=""
+		fi
+
+		text="$date    $volume    $batIco $batLev%"
+	else
+		rxCurr=$(awk '/enp3s0/ {print $2 }' /proc/net/dev)
+		txCurr=$(awk '/enp3s0/ {print $10}' /proc/net/dev)
+		text=`python "netuse.py" "$rxCurr" "$rxPrev" "$txCurr" "$txPrev"`
+		rxPrev=$rxCurr
+		txPrev=$txCurr
+	fi
+
+	xsetroot -name " $text"
+	sleep 1
+done
