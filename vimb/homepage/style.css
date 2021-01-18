@@ -16,7 +16,7 @@ body {
 	color: #FA74B2;
 }
 
-/* ------------- TRANSITIONS AND SHADOWS ------------- */
+/* ------------- TRANSITIONS AND SHADOWS ------------- */ 
 
 a, a:visited, a:hover, .box .box-container:hover, .box .box-container {
 	-webkit-transition: all 150ms ease-in-out;
@@ -70,16 +70,6 @@ a, a:visited, a:hover {
 	padding: 20px 0 0 15px;
 	text-align: left;
 }
-
-/* ------------- TIME STYLING ------------- */ 
-
-.container .time {
-	font-family: 'test';
-	font-size: 120px;
-	margin-bottom: 20px;
-}
-
-/* ------------- BOX STYLING ------------- */ 
 
 .box {
 	width: 950px;
@@ -137,18 +127,4 @@ a, a:visited, a:hover {
 
 .container form .search-submit:hover {
 	cursor: pointer;
-}
-
-/* ------------- MEDIA QUERY ------------- */ 
-
-@media only screen and (max-width: 985px) {
-	.box-container:nth-child(4), .box-container:nth-child(3) {
-		margin-top: 50px;
-	}
-	.box .box-container:nth-child(2), .box .box-container:nth-child(4) {
-		margin-right: 0;
-	}
-	.box {
-		width: 450px;
-	}  
 }

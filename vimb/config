@@ -1,5 +1,5 @@
 # Homepage
-set home-page=file:///user/home/.config/vimb/homepage/index.html
+set home-page=file:///home/syx/.config/vimb/homepage/index.html
 
 # Download directory
 set download-path=~/Downloads
@@ -22,14 +22,13 @@ set dark-mode=true
 # Font
 set font-size=20
 
-# User agent
-#set user-agent=googlebot
-autocmd LoadStarting https://web.whatsapp.com/ :set user-agent=googlebot
+# Scripts
+set scripts=false
+
+# Automatic Commands
+autocmd LoadStarting https://web.whatsapp.com/ :set user-agent=googlebot|:set scripts=true
+autocmd LoadStarting https://app.slack.com/* :set scripts=true
 
 # Keybinds
-#nmap b :sh! sh ${HOME}/.bashscripts/openMpv % <CR>
-#nmap <C-U> :sh! vimb_adblock<CR>
-#augroup mygroup
-#autocmd LoadCommitted http{s,}://www.youtube.com/watch?v=* no b
-#autocmd DownloadFinished *.pdf :sh! sh ${HOME}/.bashscripts/openApvlv <CR>
-#augroup end
+nmap b :set scripts=true|:no R <CR><Esc>
+nmap <C-B> :set scripts=false|:no R <CR><Esc>
