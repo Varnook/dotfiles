@@ -1,0 +1,64 @@
+{ "Lunes":
+			{ (7, 7): "Desayuno",
+			  (8, 8): "Ejercicio y Ducha",
+			  (9, 12): "Trabajo",
+			  (13, 13): "Almuerzo",
+			  (14, 16): "Trabajo",
+			  (17, 17): "Merienda",
+			  (18, 20): "Estudio",
+			  (21, 21): "Cena"
+			},
+  "Martes":
+			{ (7, 7): "Desayuno",
+			  (8, 8): "Ejercicio y Ducha",
+			  (9, 12): "Trabajo",
+			  (13, 13): "Almuerzo",
+			  (14, 16): "Trabajo",
+			  (17, 17): "Merienda",
+			  (21, 21): "Cena"
+			},
+  "Miercoles":
+			{ (7, 7): "Desayuno",
+			  (8, 8): "Ejercicio y Ducha",
+			  (9, 12): "Trabajo",
+			  (13, 13): "Almuerzo",
+			  (14, 16): "Trabajo",
+			  (17, 17): "Merienda",
+			  (18, 20): "Estudio",
+			  (21, 21): "Cena"
+			},
+  "Jueves":
+			{ (7, 7): "Desayuno",
+			  (8, 8): "Ejercicio y Ducha",
+			  (9, 12): "Trabajo",
+			  (13, 13): "Almuerzo",
+			  (14, 16): "Trabajo",
+			  (17, 17): "Merienda",
+			  (21, 21): "Cena"
+			},
+  "Viernes":
+			{ (7, 7): "Desayuno",
+			  (8, 8): "Ejercicio y Ducha",
+			  (9, 12): "Trabajo",
+			  (13, 13): "Almuerzo",
+			  (14, 16): "Trabajo",
+			  (17, 17): "Merienda",
+			  (18, 20): "Estudio",
+			  (21, 21): "Cena"
+			},
+  "Sabado":
+			{ (7, 7): "Desayuno",
+			  (8, 10): "Preparar Comida",
+			  (13, 13): "Almuerzo",
+			  (14, 16): "Estudio",
+			  (17, 17): "Merienda",
+			  (21, 21): "Cena"
+			},
+  "Domingo":
+			{ (7, 7): "Desayuno",
+			  (13, 13): "Almuerzo",
+			  (14, 16): "Estudio",
+			  (17, 17): "Merienda",
+			  (21, 21): "Cena"
+			}
+}

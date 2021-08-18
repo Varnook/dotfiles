@@ -33,4 +33,5 @@ numlockx &
 xsetroot -cursor_name left_ptr &
 xrandr --output HDMI-1 --set underscan on --set "underscan hborder" 1 &
 bash $HOME/.bashscripts/statusbar &
+alacritty -e scheduler &
 exec dwm

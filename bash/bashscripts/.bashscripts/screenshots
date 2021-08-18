@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd $HOME/Fotos/scr
+
+xwd -out screen.xwd
+
+newName=$( "" | dmenu -p "Nombre:" )
+
+if [ ! "$newName" ]; then
+	newName=$(find screen.xwd -printf '%TY%Tm%Td%TH%TM%TS' | tr -d ".")
+fi
+
+convert screen.xwd $newName.png
+
+xclip -selection clipboard -t image/png -i $newName.png
+
+rm screen.xwd

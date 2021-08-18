@@ -1,0 +1,11 @@
+#!/bin/bash
+
+option=$(echo -e "Shutdown\nReboot" | dmenu)
+
+if [ "$option" == "Shutdown" ]; then
+	shutdown now
+else
+	if [ "$option" == "Reboot" ]; then
+		shutdown -r now
+	fi
+fi
