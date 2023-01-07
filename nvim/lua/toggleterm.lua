@@ -10,6 +10,8 @@ function ToggleTerm()
         terminal[1] = vim.api.nvim_win_get_buf(0)
         vim.api.nvim_buf_attach(0, false, { on_detach = term_detached })
         vim.cmd("normal i")
+        vim.opt.number = false
+        vim.opt.relativenumber = false
     else
         vim.api.nvim_buf_delete(terminal[1], { force = true })
         terminal[1] = nil
