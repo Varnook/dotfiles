@@ -35,3 +35,6 @@ hi SpecialChar ctermfg=1  cterm=bold
 hi Error       ctermfg=0  ctermbg=9
 
 hi Todo        ctermfg=2  ctermbg=12
+
+hi NormalFloat ctermbg=17
+hi FloatBorder ctermfg=8

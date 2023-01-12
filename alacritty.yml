@@ -264,7 +264,7 @@ colors:
   # Example:
   #   `- { index: 16, color: '#ff00ff' }`
   #
-  indexed_colors: [ {index: 16, color: '#373e4d'} ]
+  indexed_colors: [ {index: 16, color: '#373e4d'}, {index: 17, color: '#2d3443'} ]
 
 # Bell
 #

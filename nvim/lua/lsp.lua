@@ -27,6 +27,14 @@ local function start_rust_analyzer()
     vim.lsp.buf_attach_client(current_buf, load_client_from_cache(conf))
 end
 
+local win_opts = {
+    focusable = false,
+    border = "single",
+    header = {'', "highlight hl-DiagnosticError ctermbg = 1"}
+}
+
+vim.diagnostic.config({ virtual_text = false , float = win_opts})
+
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     pattern = {"*.rs"},
     callback = start_rust_analyzer

@@ -3,6 +3,7 @@ local opts = { noremap = true, silent = true }
 
 keymap("n", "<c-l>", ":vertical resize +1<CR>", opts)
 keymap("n", "<c-h>", ":vertical resize -1<CR>", opts)
+keymap("n", "<Space>d", ":lua vim.diagnostic.open_float()<CR>", opts)
 
 keymap("i", "{<cr>", "{<cr>}<c-o>O", opts)
 keymap("i", "[<cr>", "[<cr>]<c-o>O", opts)
