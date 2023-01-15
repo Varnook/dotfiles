@@ -38,3 +38,8 @@ hi Todo        ctermfg=2  ctermbg=12
 
 hi NormalFloat ctermbg=17
 hi FloatBorder ctermfg=8
+
+hi DiagnosticUnderlineError cterm=undercurl guisp=#fa74b2
+hi DiagnosticUnderlineWarn cterm=undercurl guisp=#fa946e
+hi DiagnosticUnderlineInfo cterm=undercurl guisp=#7acbea
+hi DiagnosticUnderlineHint cterm=undercurl guisp=#efefef

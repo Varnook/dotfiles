@@ -30,12 +30,32 @@ end
 local win_opts = {
     focusable = false,
     border = "single",
-    header = {'', "highlight hl-DiagnosticError ctermbg = 1"}
+    scope = "cursor",
+    severity_sort = true,
+    header = "",
+    source = "if_many",
+    prefix = ""
 }
 
+vim.cmd("sign define DiagnosticSignError text= texthl=DiagnosticSignError")
+vim.cmd("sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn")
+vim.cmd("sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo")
+vim.cmd("sign define DiagnosticSignHint text= texthl=DiagnosticSignHint")
+
 vim.diagnostic.config({ virtual_text = false , float = win_opts})
+
+local function preview_hi()
+    if vim.api.nvim_eval("&previewwindow") ~= 0 then
+        vim.opt.syntax = "markdown"
+    end
+end
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     pattern = {"*.rs"},
     callback = start_rust_analyzer
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    pattern = {"*"},
+    callback = preview_hi
 })

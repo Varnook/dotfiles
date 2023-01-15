@@ -7,6 +7,7 @@ local options = {
     number = true,
     relativenumber = true,
     hlsearch = false,
+    syntax = "on",
     wrap = false,
     expandtab = true,
     tabstop = 4,
