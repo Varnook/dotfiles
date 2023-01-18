@@ -1,9 +1,8 @@
-hi clear
 syntax reset
 let g:colors_name = "custom"
-"set background=dark
 set t_Co=256
 
+"Syntax
 hi Normal      ctermfg=15
 hi Comment     ctermfg=8
 hi LineNr      ctermfg=8
@@ -36,10 +35,16 @@ hi Error       ctermfg=0  ctermbg=9
 
 hi Todo        ctermfg=2  ctermbg=12
 
+" Floating windows
 hi NormalFloat ctermbg=17
 hi FloatBorder ctermfg=8
 
+" Diagnostics 
 hi DiagnosticUnderlineError cterm=undercurl guisp=#fa74b2
 hi DiagnosticUnderlineWarn cterm=undercurl guisp=#fa946e
 hi DiagnosticUnderlineInfo cterm=undercurl guisp=#7acbea
 hi DiagnosticUnderlineHint cterm=undercurl guisp=#efefef
+
+" Status line
+hi NormalModeColor ctermfg=16 ctermbg=14 cterm=bold
+hi NormalModeSep ctermfg=14 ctermbg=16

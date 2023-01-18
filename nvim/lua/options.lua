@@ -1,8 +1,10 @@
+require('statusline')
 vim.cmd('colorscheme custom')
 
 local options = {
     mouse = "a",
     clipboard = "unnamedplus",
+    completeopt = "menuone,preview",
     fileencoding = "utf-8",
     number = true,
     relativenumber = true,
@@ -16,6 +18,8 @@ local options = {
     smartindent = true,
     splitbelow = true,
     splitright = true,
+    statusline = "%!v:lua.StatusLine()",
+    showmode = false
 }
 
 for k, v in pairs(options) do
