@@ -18,7 +18,7 @@ local options = {
     smartindent = true,
     splitbelow = true,
     splitright = true,
-    statusline = "%!v:lua.StatusLine()",
+    statusline = "%!v:lua.status_line()",
     showmode = false
 }
 

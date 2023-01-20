@@ -46,5 +46,61 @@ hi DiagnosticUnderlineInfo cterm=undercurl guisp=#7acbea
 hi DiagnosticUnderlineHint cterm=undercurl guisp=#efefef
 
 " Status line
+"- 0: Black  4: Blue
+"- 1: Red    5: Magenta  + 8 bright version
+"- 2: Green  6: Cyan 
+"- 3: Yellow 7: White
+"- 16: Background color
+
+hi StatusLineEnd ctermfg=16 ctermbg=16
+
 hi NormalModeColor ctermfg=16 ctermbg=14 cterm=bold
-hi NormalModeSep ctermfg=14 ctermbg=16
+hi NormalModeSep ctermfg=14 ctermbg=3
+
+hi VisualModeColor ctermfg=16 ctermbg=7 cterm=bold
+hi VisualModeSep ctermfg=7 ctermbg=3
+
+hi VisualLineModeColor ctermfg=16 ctermbg=15 cterm=bold
+hi VisualLineModeSep ctermfg=15 ctermbg=3
+
+hi VisualBlockModeColor ctermfg=16 ctermbg=15 cterm=bold
+hi VisualBlockModeSep ctermfg=15 ctermbg=3
+
+hi SelectModeColor ctermfg=16 ctermbg=7 cterm=bold
+hi SelectModeSep ctermfg=7 ctermbg=3
+
+hi SelectLineModeColor ctermfg=16 ctermbg=15 cterm=bold
+hi SelectLineModeSep ctermfg=15 ctermbg=3
+
+hi SelectBlockModeColor ctermfg=16 ctermbg=15 cterm=bold
+hi SelectBlockModeSep ctermfg=15 ctermbg=3
+
+hi InsertModeColor ctermfg=16 ctermbg=2 cterm=bold
+hi InsertModeSep ctermfg=2 ctermbg=3
+
+hi ReplaceModeColor ctermfg=16 ctermbg=1 cterm=bold
+hi ReplaceModeSep ctermfg=1 ctermbg=3
+
+hi VisualReplaceModeColor ctermfg=16 ctermbg=9 cterm=bold
+hi VisualReplaceModeSep ctermfg=9 ctermbg=3
+
+hi CommandModeColor ctermfg=16 ctermbg=5 cterm=bold
+hi CommandModeSep ctermfg=5 ctermbg=3
+
+hi VimExModeColor ctermfg=16 ctermbg=5 cterm=bold
+hi VimExModeSep ctermfg=5 ctermbg=3
+
+hi ExModeColor ctermfg=16 ctermbg=5 cterm=bold
+hi ExModeSep ctermfg=5 ctermbg=3
+
+hi PromptModeColor ctermfg=16 ctermbg=5 cterm=bold
+hi PromptModeSep ctermfg=5 ctermbg=3
+
+hi ShellModeColor ctermfg=16 ctermbg=5 cterm=bold
+hi ShellModeSep ctermfg=5 ctermbg=3
+
+hi TerminalModeColor ctermfg=16 ctermbg=5 cterm=bold
+hi TerminalModeSep ctermfg=5 ctermbg=3
+
+hi FilenameColor ctermfg=16 ctermbg=3
+hi FilenameSepColor ctermfg=3 ctermbg=16
