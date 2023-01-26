@@ -54,53 +54,53 @@ hi DiagnosticUnderlineHint cterm=undercurl guisp=#efefef
 
 hi StatusLineEnd ctermfg=16 ctermbg=16
 
-hi NormalModeColor ctermfg=16 ctermbg=14 cterm=bold
-hi NormalModeSep ctermfg=14 ctermbg=3
+hi NormalModeColor ctermfg=16 ctermbg=12 cterm=bold
+hi NormalModeSep ctermfg=12 ctermbg=18
 
 hi VisualModeColor ctermfg=16 ctermbg=7 cterm=bold
-hi VisualModeSep ctermfg=7 ctermbg=3
+hi VisualModeSep ctermfg=7 ctermbg=18
 
 hi VisualLineModeColor ctermfg=16 ctermbg=15 cterm=bold
-hi VisualLineModeSep ctermfg=15 ctermbg=3
+hi VisualLineModeSep ctermfg=15 ctermbg=18
 
 hi VisualBlockModeColor ctermfg=16 ctermbg=15 cterm=bold
-hi VisualBlockModeSep ctermfg=15 ctermbg=3
+hi VisualBlockModeSep ctermfg=15 ctermbg=18
 
 hi SelectModeColor ctermfg=16 ctermbg=7 cterm=bold
-hi SelectModeSep ctermfg=7 ctermbg=3
+hi SelectModeSep ctermfg=7 ctermbg=18
 
 hi SelectLineModeColor ctermfg=16 ctermbg=15 cterm=bold
-hi SelectLineModeSep ctermfg=15 ctermbg=3
+hi SelectLineModeSep ctermfg=15 ctermbg=18
 
 hi SelectBlockModeColor ctermfg=16 ctermbg=15 cterm=bold
-hi SelectBlockModeSep ctermfg=15 ctermbg=3
+hi SelectBlockModeSep ctermfg=15 ctermbg=18
 
 hi InsertModeColor ctermfg=16 ctermbg=2 cterm=bold
-hi InsertModeSep ctermfg=2 ctermbg=3
+hi InsertModeSep ctermfg=2 ctermbg=18
 
 hi ReplaceModeColor ctermfg=16 ctermbg=1 cterm=bold
-hi ReplaceModeSep ctermfg=1 ctermbg=3
+hi ReplaceModeSep ctermfg=1 ctermbg=18
 
 hi VisualReplaceModeColor ctermfg=16 ctermbg=9 cterm=bold
-hi VisualReplaceModeSep ctermfg=9 ctermbg=3
+hi VisualReplaceModeSep ctermfg=9 ctermbg=18
 
 hi CommandModeColor ctermfg=16 ctermbg=5 cterm=bold
-hi CommandModeSep ctermfg=5 ctermbg=3
+hi CommandModeSep ctermfg=5 ctermbg=18
 
 hi VimExModeColor ctermfg=16 ctermbg=5 cterm=bold
-hi VimExModeSep ctermfg=5 ctermbg=3
+hi VimExModeSep ctermfg=5 ctermbg=18
 
 hi ExModeColor ctermfg=16 ctermbg=5 cterm=bold
-hi ExModeSep ctermfg=5 ctermbg=3
+hi ExModeSep ctermfg=5 ctermbg=18
 
 hi PromptModeColor ctermfg=16 ctermbg=5 cterm=bold
-hi PromptModeSep ctermfg=5 ctermbg=3
+hi PromptModeSep ctermfg=5 ctermbg=18
 
 hi ShellModeColor ctermfg=16 ctermbg=5 cterm=bold
-hi ShellModeSep ctermfg=5 ctermbg=3
+hi ShellModeSep ctermfg=5 ctermbg=18
 
 hi TerminalModeColor ctermfg=16 ctermbg=5 cterm=bold
-hi TerminalModeSep ctermfg=5 ctermbg=3
+hi TerminalModeSep ctermfg=5 ctermbg=18
 
-hi FilenameColor ctermfg=16 ctermbg=3
-hi FilenameSepColor ctermfg=3 ctermbg=16
+hi FilenameColor ctermfg=16 ctermbg=18
+hi FilenameSepColor ctermfg=18 ctermbg=16

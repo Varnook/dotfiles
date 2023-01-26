@@ -38,9 +38,9 @@ local function display_filename()
     local filename_sep_color = "%#FilenameSepColor#"
     local modified = "" 
     if vim.api.nvim_eval("&modified") ~= 0 then
-        modified = " "
+        modified = "  "
     elseif vim.api.nvim_eval("&readonly") ~= 0 then
-        modified = " "
+        modified = "  "
     end
     return filename_color .. path_filename .. modified .. filename_sep_color .. separator
 end
