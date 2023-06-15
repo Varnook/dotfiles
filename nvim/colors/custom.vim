@@ -54,8 +54,8 @@ hi DiagnosticUnderlineHint cterm=undercurl guisp=#efefef
 
 hi StatusLineEnd ctermfg=16 ctermbg=16
 
-hi NormalModeColor ctermfg=16 ctermbg=12 cterm=bold
-hi NormalModeSep ctermfg=12 ctermbg=18
+hi NormalModeColor ctermfg=16 ctermbg=14 cterm=bold
+hi NormalModeSep ctermfg=14 ctermbg=18
 
 hi VisualModeColor ctermfg=16 ctermbg=7 cterm=bold
 hi VisualModeSep ctermfg=7 ctermbg=18
@@ -100,7 +100,7 @@ hi ShellModeColor ctermfg=16 ctermbg=5 cterm=bold
 hi ShellModeSep ctermfg=5 ctermbg=18
 
 hi TerminalModeColor ctermfg=16 ctermbg=5 cterm=bold
-hi TerminalModeSep ctermfg=5 ctermbg=18
+hi TerminalModeSep ctermfg=5 ctermbg=16
 
 hi FilenameColor ctermfg=16 ctermbg=18
 hi FilenameSepColor ctermfg=18 ctermbg=16
