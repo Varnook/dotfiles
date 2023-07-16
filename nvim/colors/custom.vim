@@ -12,7 +12,7 @@ hi String      ctermfg=11
 hi Character   ctermfg=11 cterm=bold
 hi Boolean     ctermfg=6  cterm=bold
 
-hi Identifier  ctermfg=5
+hi Identifier  ctermfg=5  cterm=none
 hi Function    ctermfg=5  cterm=bold
 
 hi Statement   ctermfg=1 
@@ -24,6 +24,8 @@ hi PreProc     ctermfg=14
 hi Include     ctermfg=14 cterm=italic
 hi Define      ctermfg=14 cterm=italic
 hi PreCondit   ctermfg=14 cterm=italic
+
+hi @lsp.type.namespace ctermfg=14
 
 hi Type        ctermfg=2  cterm=bold
 hi Structure   ctermfg=3  cterm=bold

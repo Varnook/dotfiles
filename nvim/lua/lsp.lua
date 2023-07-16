@@ -4,7 +4,11 @@ local current_buf = 0
 local clients = {}
 
 local get_root_dir = function(root_pattern)
-    return vim.fs.dirname(vim.fs.find(root_pattern, { path = vim.api.nvim_buf_get_name(current_buf),  upward = true })[1])
+    local root_dir = vim.fs.dirname(vim.fs.find(root_pattern, { path = vim.api.nvim_buf_get_name(current_buf),  upward = true })[1])
+    if root_dir == nil then
+        root_dir = "default"
+    end
+    return root_dir
 end
 
 local function initialize_client(conf)
@@ -24,6 +28,16 @@ end
 
 local function start_rust_analyzer()
     local conf = { name = "rust_analyzer", cmd = {"rust-analyzer"}, root_dir = get_root_dir({"Cargo.toml"}) }
+    vim.lsp.buf_attach_client(current_buf, load_client_from_cache(conf))
+end
+
+local function start_pylsp()
+    local conf = { name = "pylsp", cmd = {"pylsp"}, root_dir = get_root_dir({"__init__.py"}) }
+    vim.lsp.buf_attach_client(current_buf, load_client_from_cache(conf))
+end
+
+local function start_clangd()
+    local conf = { name = "clangd", cmd = {"clangd"}, root_dir = get_root_dir({"compile_commands.json"}) }
     vim.lsp.buf_attach_client(current_buf, load_client_from_cache(conf))
 end
 
@@ -53,6 +67,16 @@ end
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     pattern = {"*.rs"},
     callback = start_rust_analyzer
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    pattern = {"*.py"},
+    callback = start_pylsp
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    pattern = {"*.c", "*.h"},
+    callback = start_clangd
 })
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
