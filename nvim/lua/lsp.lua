@@ -3,12 +3,18 @@
 local current_buf = 0
 local clients = {}
 
-local get_root_dir = function(root_pattern)
-    local root_dir = vim.fs.dirname(vim.fs.find(root_pattern, { path = vim.api.nvim_buf_get_name(current_buf),  upward = true })[1])
-    if root_dir == nil then
-        root_dir = "default"
+local function get_root_dir(root_pattern)
+    local full_path = vim.fs.find(root_pattern, {
+        path = vim.api.nvim_buf_get_name(current_buf), 
+        upward = true, 
+        stop = vim.loop.os_homedir()
+    })
+
+    if full_path == nil or not string.find(full_path[1], root_pattern) then
+        return "default"
+    else
+        return vim.fs.dirname(full_path[1])
     end
-    return root_dir
 end
 
 local function initialize_client(conf)
@@ -26,18 +32,43 @@ local function load_client_from_cache(conf)
     return clients[conf.root_dir][conf.name]
 end
 
-local function start_rust_analyzer()
-    local conf = { name = "rust_analyzer", cmd = {"rust-analyzer"}, root_dir = get_root_dir({"Cargo.toml"}) }
+function apply_feature(usr_features)
+    if usr_features == "" then
+        usr_features = {vim.fn.input("")}
+    end
+    local conf = { 
+        name = "rust_analyzer", 
+        cmd = {"rust-analyzer"}, 
+        init_options = {cargo={features=usr_features}}, 
+        root_dir = get_root_dir("Cargo.toml")
+    }
+    local client_id = load_client_from_cache(conf)
+    vim.lsp.buf_detach_client(current_buf, client_id)
+    vim.lsp.stop_client(client_id)
+    initialize_client(conf)
     vim.lsp.buf_attach_client(current_buf, load_client_from_cache(conf))
 end
 
+local function start_rust_analyzer()
+    local conf = { 
+        name = "rust_analyzer", 
+        cmd = {"rust-analyzer"}, 
+        root_dir = get_root_dir("Cargo.toml")
+    }
+    vim.lsp.buf_attach_client(current_buf, load_client_from_cache(conf))
+    -- til: space ≠ Space. Space works with just one key after it, while space can take more
+    vim.api.nvim_buf_set_keymap(current_buf, 'n', '<space>fa', ':lua apply_feature("all")<CR>', {})
+    vim.api.nvim_buf_set_keymap(current_buf, 'n', '<space>fA', ':lua apply_feature(nil)<CR>', {})
+    vim.api.nvim_buf_set_keymap(current_buf, 'n', '<space>F', ':lua apply_feature("")<CR>', {})
+end
+
 local function start_pylsp()
-    local conf = { name = "pylsp", cmd = {"pylsp"}, root_dir = get_root_dir({"__init__.py"}) }
+    local conf = { name = "pylsp", cmd = {"pylsp"}, root_dir = get_root_dir("__init__.py") }
     vim.lsp.buf_attach_client(current_buf, load_client_from_cache(conf))
 end
 
 local function start_clangd()
-    local conf = { name = "clangd", cmd = {"clangd"}, root_dir = get_root_dir({"compile_commands.json"}) }
+    local conf = { name = "clangd", cmd = {"clangd"}, root_dir = get_root_dir("compile_commands.json") }
     vim.lsp.buf_attach_client(current_buf, load_client_from_cache(conf))
 end
 
@@ -54,7 +85,7 @@ local win_opts = {
 vim.cmd("sign define DiagnosticSignError text= texthl=DiagnosticSignError")
 vim.cmd("sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn")
 vim.cmd("sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo")
-vim.cmd("sign define DiagnosticSignHint text= texthl=DiagnosticSignHint")
+vim.cmd("sign define DiagnosticSignHint text= texthl=DiagnosticSignHint")
 
 vim.diagnostic.config({ virtual_text = false , float = win_opts})
 
