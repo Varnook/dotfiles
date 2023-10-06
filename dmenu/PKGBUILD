@@ -1,0 +1,37 @@
+# Maintainer: Neptune <neptune650@proton.me>
+# Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Dag Odenhall <dag.odenhall@gmail.com>
+# Contributor: Grigorios Bouzakis <grbzks@gmail.com>
+
+pkgname=dmenu
+pkgver=6.4
+pkgrel=1
+pkgdesc="Generic menu for X"
+url="https://dwm.suckless.org"
+arch=('i686' 'x86_64')
+license=('MIT')
+makedepends=('git')
+depends=(
+	coreutils
+	fontconfig
+	freetype2
+	glibc
+	libfontconfig.so
+	libx11
+	libxft
+	libxinerama
+	sh
+)
+source=(git://git.suckless.org/dmenu config.patch)
+sha256sums=('SKIP'
+            'SKIP')
+
+prepare() {
+  cd "$srcdir/$pkgname"
+  patch <"$srcdir/config.patch"
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  make PREFIX=/usr DESTDIR="$pkgdir" clean install
+}
