@@ -3,6 +3,8 @@
 local current_buf = 0
 local clients = {}
 
+local keybind_opts = { noremap = true, silent = true }
+
 local function get_root_dir(root_pattern)
     local full_path = vim.fs.find(root_pattern, {
         path = vim.api.nvim_buf_get_name(current_buf), 
@@ -57,14 +59,23 @@ local function start_rust_analyzer()
     }
     vim.lsp.buf_attach_client(current_buf, load_client_from_cache(conf))
     -- til: space ≠ Space. Space works with just one key after it, while space can take more
-    vim.api.nvim_buf_set_keymap(current_buf, 'n', '<space>fa', ':lua apply_feature("all")<CR>', {})
-    vim.api.nvim_buf_set_keymap(current_buf, 'n', '<space>fA', ':lua apply_feature(nil)<CR>', {})
-    vim.api.nvim_buf_set_keymap(current_buf, 'n', '<space>F', ':lua apply_feature("")<CR>', {})
+    vim.api.nvim_buf_set_keymap(current_buf, 'n', '<space>fa', ':lua apply_feature("all")<CR>', keybind_opts)
+    vim.api.nvim_buf_set_keymap(current_buf, 'n', '<space>fA', ':lua apply_feature(nil)<CR>', keybind_opts)
+    vim.api.nvim_buf_set_keymap(current_buf, 'n', '<space>F', ':lua apply_feature("")<CR>', keybind_opts)
 end
 
 local function start_pylsp()
     local conf = { name = "pylsp", cmd = {"pylsp"}, root_dir = get_root_dir("__init__.py") }
     vim.lsp.buf_attach_client(current_buf, load_client_from_cache(conf))
+    vim.api.nvim_buf_set_keymap(current_buf, "v", "<c-#>", "0<c-v><s-i>// <Esc>", keybind_opts)
+    vim.api.nvim_buf_set_keymap(current_buf, "v", "<c-s-#>", "0<c-v><s-i>// <Esc>", keybind_opts)
+end
+
+local function start_elixir_ls()
+    local conf = { name = "elixir_ls", cmd = {"elixir-ls"}, root_dir = get_root_dir("mix.exs") }
+    vim.lsp.buf_attach_client(current_buf, load_client_from_cache(conf))
+    vim.api.nvim_buf_set_keymap(current_buf, "v", "<c-_>", "0<c-v><s-i># <Esc>", keybind_opts)
+    vim.api.nvim_buf_set_keymap(current_buf, "v", "<Space>/", ":s/[#] /<CR>", keybind_opts)
 end
 
 local function start_clangd()
@@ -103,6 +114,11 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     pattern = {"*.py"},
     callback = start_pylsp
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    pattern = {"*.ex", "*.exs", "*.heex"},
+    callback = start_elixir_ls
 })
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
