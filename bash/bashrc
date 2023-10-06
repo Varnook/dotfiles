@@ -6,13 +6,14 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-alias la='ls -a'
-alias q='exit'
+PS1='[\u@\h \W]\$ '
 
 LS_COLORS='di=01;94:ln=04;36:*.c=00;96:*.h=00;93:*.cpp=00;96:*hpp=00;93:*.py=00;91:*.asm=00;31:*.hs=00;36:*.iso=00;92:*.pdf=00;31:ex=01;32';
 export LS_COLORS
 
-export scrDir="$HOME/Fotos/scr"
-source "$HOME/.bashscripts/customComs"
+source "$HOME/.bashscripts/custom_coms"
 
 PS1='\[\033[0;90m\][\[\033[0;35m\]\u@\h:\[\033[0;95m\]\W\[\033[0;90m\]]\[\033[0;92m\]$(_git_parse)\[\033[0;90m\]$ \[\033[0;29m\]'
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+export EDITOR=nvim
+export PATH=$PATH:$HOME/.local/bin
