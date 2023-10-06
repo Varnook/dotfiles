@@ -1,3 +1,0 @@
-#!/bin/sh
-notify-send --urgency=normal "updating adblock" 
-wget https://easylist.to/easylist/easylist.txt -O .config/wyebadblock/easylist.txt && notify-send --urgency=normal "adblock update done"

@@ -5,8 +5,8 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=16" };
-static const char dmenufont[]       = "monospace:size=16";
+static const char *fonts[]          = { "hack:size=16" };
+static const char dmenufont[]       = "hack:size=16";
 static const char col_bg[]          = "#373e4d";
 static const char col_fg[]          = "#f9f9f9";
 static const char col_black[]       = "#4c566a";
@@ -28,7 +28,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Vimb",     NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "firefox",     NULL,       NULL,       1 << 1,       0,           -1 },
 };
 
 /* layout(s) */
@@ -66,7 +66,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = vimbcmd } },
-	{ 0,                            XK_Super_L,spawn,          SHCMD("exe=`\"\" | dmenu -p \":\"` && eval \"vimb \\\"$exe\\\"\"")},
+	{ 0,                            XK_Super_L,spawn,          SHCMD("exe=`\"\" | dmenu -p \" :\"`; firefox -search \"$exe\"")},
 	{ MODKEY|ShiftMask,             XK_z,      spawn,          SHCMD("bash $HOME/.bashscripts/dmenu_shutdown")  },
 	{ ShiftMask,                    XK_F6,     spawn,          SHCMD("bash $HOME/.bashscripts/brightness.sh -") },
 	{ 0,                            XK_F6,     spawn,          SHCMD("bash $HOME/.bashscripts/brightness.sh --")},
