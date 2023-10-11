@@ -1,0 +1,1 @@
+efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux"  --loader /vmlinuz-linux --unicode "root=UUID= rw vfio-pci.ids= initrd=\initramfs-linux.img"
