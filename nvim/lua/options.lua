@@ -1,5 +1,5 @@
-require('statusline')
-vim.cmd('colorscheme custom')
+require 'statusline'
+vim.cmd 'colorscheme custom'
 
 local options = {
     mouse = "a",
