@@ -1,0 +1,78 @@
+[colors]
+draw_bold_text_with_bright_colors = false
+# Background
+[[colors.indexed_colors]]
+color = "#373e4d"
+index = 16
+
+# Darker than background
+[[colors.indexed_colors]]
+color = "#2d3443"
+index = 17
+
+# Light pink
+[[colors.indexed_colors]]
+color = "#ffd7d7"
+index = 18
+
+[colors.bright]
+black = "#4c566a"
+blue = "#7acbea"
+cyan = "#a1d5f7"
+green = "#44eb9f"
+magenta = "#d8a6f4"
+red = "#fa74b2"
+white = "#f9f9f9"
+yellow = "#faa687"
+
+[colors.normal]
+black = "#434c5e"
+blue = "#63c5ea"
+cyan = "#89ccf7"
+green = "#2be491"
+magenta = "#cf8ef4"
+red = "#fa5aa4"
+white = "#efefef"
+yellow = "#fa946e"
+
+[colors.primary]
+background = "#373e4d"
+foreground = "#f9f9f9"
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 14
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "Hack Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "K"
+mode = "~Alt"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "J"
+mode = "~Alt"
+mods = "Alt"
+
+[window.padding]
+x = 4
+y = 4
