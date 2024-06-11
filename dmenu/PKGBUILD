@@ -22,13 +22,13 @@ depends=(
 	libxinerama
 	sh
 )
-source=(git://git.suckless.org/dmenu config.patch)
+source=(git://git.suckless.org/dmenu config.h)
 sha256sums=('SKIP'
             'SKIP')
 
 prepare() {
   cd "$srcdir/$pkgname"
-  patch <"$srcdir/config.patch"
+  cp "$srcdir/config.h" "config.h"
 }
 
 package() {
